@@ -7,9 +7,9 @@ import { PhoneShell, PAYTM_STATUS_BAR } from "./PhoneShell";
 import type { NotificationAudience } from "@/context/NotificationContext";
 
 /**
- * Wraps every route in the iPhone mockup, except the side-by-side pages — the
- * landing screen at "/" and /test/* — which draw their own two phones and need
- * the full viewport width. The check on "/" is exact: startsWith would match
+ * Wraps every route in the iPhone mockup, except the pages that draw their own
+ * phones and need the full viewport width — the case study at "/", the bare
+ * /demo screen, and /test/*. The check on "/" is exact: startsWith would match
  * every route.
  */
 
@@ -50,7 +50,8 @@ function chromeFor(pathname: string | null): Chrome {
 
 export function PhoneFrame({ children }: { children: ReactNode }) {
   const pathname = usePathname();
-  const isFullWidth = pathname === "/" || pathname?.startsWith("/test");
+  const isFullWidth =
+    pathname === "/" || pathname?.startsWith("/demo") || pathname?.startsWith("/test");
 
   if (isFullWidth) {
     return <>{children}</>;

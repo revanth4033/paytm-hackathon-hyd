@@ -23,9 +23,17 @@ Then open <http://localhost:3000>.
 
 ---
 
+## The case study
+
+`/` is the **case study** — the problem, the two-lane model, where the AI sits, the trust model, and the objections answered, with the live prototype embedded partway down. It exists because a judge opening the submission link sees a phone mockup and has no idea what it is for. Keep it in sync with `docs/05-pitch-one-pager.md`, which is the document you hold during judging.
+
+`/demo` is the same prototype with nothing around it — open that one when presenting live.
+
+---
+
 ## The demo
 
-`/` opens on **both phones side by side**, sharing one live state — the merchant's Bharosa Book on the left, the customer's Paytm on the right. This is the point of the layout: the handoff plays out across both devices with no page reload in between.
+`/demo` opens on **both phones side by side**, sharing one live state — the merchant's Bharosa Book on the left, the customer's Paytm on the right. This is the point of the layout: the handoff plays out across both devices with no page reload in between.
 
 Walk it in this order:
 
@@ -34,7 +42,7 @@ Walk it in this order:
 3. **Left phone** lights up with the request → tap **Accept**
 4. The customer now appears in the merchant's book with their first purchase already on the khata
 
-> The landing screen needs roughly 900px of width for the two phones to sit side by side. Present it on a laptop; on a narrow screen they stack vertically.
+> The two phones need roughly 900px of width to sit side by side. Present on a laptop; on a narrow screen they stack vertically.
 
 ---
 
@@ -42,7 +50,8 @@ Walk it in this order:
 
 | Route | What it is |
 |---|---|
-| `/` | Both phones, side by side, sharing live state |
+| `/` | The case study, with the live prototype embedded |
+| `/demo` | Both phones, side by side, sharing live state |
 | `/consumer` | The customer's Paytm home, full screen |
 | `/consumer/scan` | The QR scanner |
 | `/consumer/pay/[merchantId]` | Payment screen — where Add Bharosa lives |
@@ -83,4 +92,4 @@ State is in-memory React context (`context/BharosaContext.tsx`) — no backend, 
 
 ## Deploying
 
-The app lives in the `paytm-bharosa/` subdirectory of this repo. On Vercel, set **Root Directory** to `paytm-bharosa` under Settings → Build & Deployment, or the build will find no `package.json` and serve a 404.
+The app builds from the repo root — `package.json` is at the top level, so Vercel's defaults work with no Root Directory override. If this project was deployed before the app was flattened out of the old `paytm-bharosa/` subdirectory, clear that **Root Directory** setting under Settings → Build & Deployment or the build will find no `package.json` and serve a 404.

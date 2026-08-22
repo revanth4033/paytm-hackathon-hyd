@@ -33,7 +33,7 @@ This tells any AI coding tool exactly how the demo is structured — so it build
 ## 3. Folder Structure
 
 ```
-paytm-bharosa/
+. (repo root)
 ├── app/
 │   ├── layout.tsx                  # Root layout — wraps app in BharosaProvider
 │   ├── page.tsx                    # Landing / role toggle (Merchant ⇄ Customer)
