@@ -65,7 +65,7 @@ const STEPS = [
   },
   {
     phone: "Right phone",
-    body: "Enter an amount and tap the Add Bharosa chip. The primary button flips to Add Bharosa — tap it.",
+    body: "Enter an amount and tap the 🤝 Add Bharosa chip. The primary button flips to Add Bharosa — tap it.",
   },
   {
     phone: "Left phone",
