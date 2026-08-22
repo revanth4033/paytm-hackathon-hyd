@@ -46,7 +46,7 @@ import {
  * floating Scan QR pill and the bottom nav.
  *
  * Everything here is decorative except the two live entry points — Scan any QR
- * (and the floating pill) and Bharosa. Bharosa rides in the UPI row as a fifth
+ * (and the floating pill) and Bharosa. Bharosa rides in the UPI row as a second
  * tile, which is why that row scrolls where the real app's four tiles don't:
  * the feature has to look like it already shipped inside Paytm, not like a
  * separate surface bolted beside it.
@@ -188,19 +188,6 @@ export function PaytmHome({ onScan, onBharosa, badge }: PaytmHomeProps) {
               <TileLabel label={"Scan any\nQR"} />
             </button>
 
-            {[
-              { label: "Pay\nAnyone", icon: <PayAnyoneIcon className="h-[30px] w-[30px]" /> },
-              { label: "To Bank &\nSelf A/c", icon: <BankIcon className="h-[30px] w-[30px]" /> },
-              { label: "Balance &\nHistory", icon: <BalanceHistoryIcon className="h-[30px] w-[30px]" /> },
-            ].map((tile) => (
-              <div key={tile.label} className="flex w-[74px] shrink-0 flex-col items-center gap-2.5">
-                <span className="flex h-[62px] w-[62px] items-center justify-center rounded-full bg-[#1476d1] text-white">
-                  {tile.icon}
-                </span>
-                <TileLabel label={tile.label} />
-              </div>
-            ))}
-
             <button
               type="button"
               onClick={onBharosa}
@@ -214,6 +201,19 @@ export function PaytmHome({ onScan, onBharosa, badge }: PaytmHomeProps) {
               </span>
               <TileLabel label="Bharosa" />
             </button>
+
+            {[
+              { label: "Pay\nAnyone", icon: <PayAnyoneIcon className="h-[30px] w-[30px]" /> },
+              { label: "To Bank &\nSelf A/c", icon: <BankIcon className="h-[30px] w-[30px]" /> },
+              { label: "Balance &\nHistory", icon: <BalanceHistoryIcon className="h-[30px] w-[30px]" /> },
+            ].map((tile) => (
+              <div key={tile.label} className="flex w-[74px] shrink-0 flex-col items-center gap-2.5">
+                <span className="flex h-[62px] w-[62px] items-center justify-center rounded-full bg-[#1476d1] text-white">
+                  {tile.icon}
+                </span>
+                <TileLabel label={tile.label} />
+              </div>
+            ))}
           </div>
         </div>
 
